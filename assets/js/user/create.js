@@ -1,3 +1,4 @@
+//cria um novo usuário
 function createUser(){
 
     let localtoken = localStorage.getItem("token");

@@ -1,4 +1,4 @@
-//Add user em equipe
+//adiciona um grupo de usuário de uma equipe
 function fillUser(){
 
     let localtoken = localStorage.getItem("token");

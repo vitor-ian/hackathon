@@ -1,4 +1,4 @@
-//Add user em equipe
+//deleta um grupo de usuário de uma equipe
 function drainUser(){
 
     let localtoken = localStorage.getItem("token");

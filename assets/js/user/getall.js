@@ -1,4 +1,4 @@
-//Retorna Array de usuarios
+//Retorna Array de todos os usuarios
 function getAll(){
 
     let localtoken = localStorage.getItem("token");

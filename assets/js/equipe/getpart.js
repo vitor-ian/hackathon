@@ -1,3 +1,4 @@
+//lista de todos os participantes
 function getPart(){
 
     let localtoken = localStorage.getItem("token");

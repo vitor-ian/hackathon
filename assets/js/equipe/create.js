@@ -1,3 +1,4 @@
+//cria uma equipe
 function createEquipe(){
 
     let localtoken = localStorage.getItem("token");

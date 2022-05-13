@@ -1,3 +1,4 @@
+//login
 function login(){
 
     var username = document.getElementById("user").value;

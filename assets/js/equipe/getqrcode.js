@@ -1,4 +1,4 @@
-//Add user em equipe
+//pega o qrcode da equipe
 function getQRCode(){
 
     let localtoken = localStorage.getItem("token");
@@ -23,6 +23,7 @@ function getQRCode(){
             success: function (retorno) {
                 if(retorno.status == 200){
                     console.log("QR Code inserido");
+                    //armazenar qr code em um byte array
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");
                 }
