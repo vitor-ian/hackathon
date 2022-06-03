@@ -55,11 +55,6 @@
 <button id="stop-button">Stop</button>
 <hr>
 
-<h1>Scan from File:</h1>
-<input type="file" id="file-selector">
-<b>Detected QR code: </b>
-<span id="file-qr-result">None</span>
-
 <!--<script src="../qr-scanner.umd.min.js"></script>-->
 <!--<script src="../qr-scanner.legacy.min.js"></script>-->
 <script type="module">
@@ -80,13 +75,26 @@
     const fileSelector = document.getElementById('file-selector');
     const fileQrResult = document.getElementById('file-qr-result');
 
+    function isUrlValid(url) {
+        return /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url);
+    }
+
+
+
     function setResult(label, result) {
-        console.log(result.data);
-        label.textContent = result.data;
-        camQrResultTimestamp.textContent = new Date().toString();
-        label.style.color = 'teal';
-        clearTimeout(label.highlightTimeout);
-        label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+        var url = result.data;
+        if(isUrlValid(url)) {
+            window.location.replace(url);
+        }else{
+            alert("QRcode não autorizado para essa aplicação");
+        }
+
+        return;
+        // label.textContent = result.data;
+        // camQrResultTimestamp.textContent = new Date().toString();
+        // label.style.color = 'teal';
+        // clearTimeout(label.highlightTimeout);
+        // label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
     }
 
     // ####### Web Cam Scanning #######
@@ -109,11 +117,10 @@
             const option = document.createElement('option');
             option.value = camera.id;
             option.text = camera.label;
-            camList.add(option);
         }));
     });
 
-    QrScanner.hasCamera().then(hasCamera => camHasCamera.textContent = hasCamera);
+    QrScanner.hasCamera().then();
 
     // for debugging
     window.scanner = scanner;
@@ -132,14 +139,6 @@
 
     document.getElementById('inversion-mode-select').addEventListener('change', event => {
         scanner.setInversionMode(event.target.value);
-    });
-
-    camList.addEventListener('change', event => {
-        scanner.setCamera(event.target.value).then(updateFlashAvailability);
-    });
-
-    flashToggle.addEventListener('click', () => {
-        scanner.toggleFlash().then(() => flashState.textContent = scanner.isFlashOn() ? 'on' : 'off');
     });
 
     document.getElementById('start-button').addEventListener('click', () => {
