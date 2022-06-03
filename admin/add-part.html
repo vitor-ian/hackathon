@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--NAME BAR-->
-    <title>Log de Eventos</title>
+    <title>Editar Equipe</title>
 
     <!--ICON BAR-->
     <link rel="shortcut icon" href="">
@@ -27,7 +27,7 @@
     
 </head>
 
-<body class="boddy-01">
+<body class="boddy-02">
 
     <section id="loading" class="loading">
         <img src="../assets/img/carregando.gif" alt="">
@@ -70,46 +70,34 @@
         </ul>
     </section>
 
-    <main>
+    <main class="main-equipe">
+        <div class="esp-edit-equipe">
+            <div class="tl-pg-login">
+                <h1>Adicionar Participantes</h1>
+                <h3 id="name-equipe">Equipe</h3>
+            </div>
+    
+            <form>
+                <div class="w-100" id="alertas"></div>
+                <div class="ct-input-login d-block my-2 d-flex">
+                    <input class="w-100" placeholder="Pesquise por um nome" id="search" type="search">
+                    <input type="button" onclick="searchUsers()" value="Search" id="send" class="btn-input-qrcode"></input>
+                </div>
 
-        <div  class="titulo-page">
-            <h1>Log de Eventos</h1>
+                <div class="ct-input-login d-block my-2">
+                    <ul class="list-user" id="list-user"></ul>
+                </div>
+
+                <div>
+                    <input type="button" onclick="fillUser()" value="Adicionar" id="submit" class="btn-03"></input>
+                    <div class="ct-btn-cancel">
+                        <a class="btn-cancel" href="equipe.html">Cancelar</a>
+                    </div>
+                    
+                </div>
+            </form>
         </div>
-
-        <section class="log-eventos">
-            <table>
-                <thead>
-                    <tr>
-                      <th>Autor</th>
-                      <th>Equipe</th>
-                      <th>Pontos anterior</th>
-                      <th>Pontos atual</th>
-                      <th>Horário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td>John</td>
-                      <td>FreeBSD</td>
-                      <td>1000</td>
-                      <td>2000</td>
-                      <td>13:10 - 10/04/2022</td>
-                    </tr>
-                    <tr>
-                      <td>John</td>
-                      <td>FreeBSD</td>
-                      <td>1000</td>
-                      <td>2000</td>
-                      <td>13:10 - 10/04/2022</td>
-                    </tr>
-                </tbody>
-                
-            </table>
-        </section>
-        
-        
-
-        
+ 
     </main>
 
 
@@ -120,6 +108,9 @@
 
     <!--IMPORT JS-->
     <!-- <script src="../assets/js/loading.js"></script> -->
+    <script src="../assets/js/equipe/get.js"></script>
+    <script src="../assets/js/equipe/fill.js"></script>
+    <script src="../assets/js/user/getall.js"></script>
 
 </body>
 

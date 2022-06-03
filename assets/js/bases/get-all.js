@@ -1,12 +1,9 @@
-//lista de todos os participantes
+//Retorna Array de todos as tarefas
 var localtoken = localStorage.getItem("token");
 var token = atob(localtoken);
 
-var equipe = localStorage.getItem("equipe");
-var id = atob(equipe);
-
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/equipe/get-participantes?equipe_id=" + id,
+            url : "https://18.217.208.6:4443/api/v1/bases/get-all",
             type : 'GET',
             crossDomain: true,
 
@@ -15,8 +12,8 @@ var id = atob(equipe);
             },
             success: function (retorno) {
                 if(retorno.status == 200){
-                    $(retorno.participantes).each(function(chave, valor){
-                        $("<li class='d-flex justify-content-between align-items-center w-100 my-2'><div>"+ valor.name +"</div><input id='check-user' value='" + valor.id + "' type='checkbox'></li>").appendTo("#list-user");
+                    $(retorno.bases).each(function(chave, valor){
+                        $("<option value='" + valor.id +"'>" + valor.name +"</option>").appendTo("#tarefas");
                     });
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");

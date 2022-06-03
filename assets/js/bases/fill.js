@@ -1,5 +1,5 @@
-//deleta um grupo de usuário de uma equipe
-function drainUser(){
+//adiciona um grupo de usuário a uma equipe
+function fillUser(){
 
     var localtoken = localStorage.getItem("token");
     var token = atob(localtoken);
@@ -9,18 +9,18 @@ function drainUser(){
         users.push($(this).val());
     });
 
-    var equipe = localStorage.getItem("equipe");
-    var equipe_id = atob(equipe);
+    var tarefa = localStorage.getItem("tarefa");
+    var base_id = atob(tarefa);
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/equipe/drain",
-            type : 'DELETE',
+            url : "https://18.217.208.6:4443/api/v1/bases/fill",
+            type : 'POST',
             crossDomain: true,
             
             dataType: "json",
             data: JSON.stringify({
                 users: users,
-                equipe_id: equipe_id,
+                base_id: base_id,
             }),
 
             headers: {
@@ -29,7 +29,7 @@ function drainUser(){
             },
             success: function (retorno) {
                 if(retorno.status == 200){
-                    window.location.href = "/admin/equipe.html"; 
+                    window.location.href = "/admin/ger-tarefas.html"; 
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");
                 }

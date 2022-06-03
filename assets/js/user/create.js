@@ -5,13 +5,20 @@ function createUser(){
     let token = atob(localtoken);
 
     var email = document.getElementById("email").value;
-    var name = document.getElementById("name").value;
+    var name = document.getElementById("nome").value;
+    var username = document.getElementById("username").value;
     var phone = document.getElementById("phone").value;
-    var type = document.getElementById("type").value;
-    var password_hash = document.getElementById("passwordhash").value;
+    var type = "";
+    var password_hash = document.getElementById("password").value;
+
+    if (document.getElementById("part").checked) {
+        type = "part";
+    } else if (document.getElementById("avali").checked) {
+        type = "avali";
+    }
 
       $.ajax({
-            url : "http://18.217.208.6:8080/api/v1/user/create",
+            url : "https://18.217.208.6:4443/api/v1/user/create",
             type : 'POST',
             crossDomain: true,
             
@@ -19,6 +26,7 @@ function createUser(){
             data: JSON.stringify({
                 email: email,
                 name: name,
+                username: username,
                 phone: phone,
                 type: type,
                 password_hash: password_hash,
@@ -30,7 +38,7 @@ function createUser(){
             },
             success: function (retorno) {
                 if(retorno.status == 200){
-                    console.log("usuário criado");
+                    window.location.href = "/admin/settings.html"; 
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");
                 }

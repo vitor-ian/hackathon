@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--NAME BAR-->
-    <title>Log de Eventos</title>
+    <title>Settings</title>
 
     <!--ICON BAR-->
     <link rel="shortcut icon" href="">
@@ -27,7 +27,7 @@
     
 </head>
 
-<body class="boddy-01">
+<body class="boddy-02">
 
     <section id="loading" class="loading">
         <img src="../assets/img/carregando.gif" alt="">
@@ -62,7 +62,7 @@
                 <p class="txt-menu">QR Code</p>
             </a></li>
 
-            <li class="item-mobile"><a href="/admin/settings.html">
+            <li class="item-mobile  select-item"><a href="/admin/settings.html">
                 <p class="icon-menu"><i class="uil uil-setting"></i></p>
                 <p class="txt-menu">Settings</p>
             </a></li>
@@ -70,46 +70,33 @@
         </ul>
     </section>
 
-    <main>
-
-        <div  class="titulo-page">
-            <h1>Log de Eventos</h1>
-        </div>
-
-        <section class="log-eventos">
-            <table>
-                <thead>
-                    <tr>
-                      <th>Autor</th>
-                      <th>Equipe</th>
-                      <th>Pontos anterior</th>
-                      <th>Pontos atual</th>
-                      <th>Horário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td>John</td>
-                      <td>FreeBSD</td>
-                      <td>1000</td>
-                      <td>2000</td>
-                      <td>13:10 - 10/04/2022</td>
-                    </tr>
-                    <tr>
-                      <td>John</td>
-                      <td>FreeBSD</td>
-                      <td>1000</td>
-                      <td>2000</td>
-                      <td>13:10 - 10/04/2022</td>
-                    </tr>
-                </tbody>
+    <main class="main-equipe">
+        <div class="esp-edit-equipe">
+            <div class="tl-pg-login rm-margin">
+                <h1>Settings</h1>
+            </div>
+            
+            <div class="w-100">
+                <div class="w-100">
+                    <a href="/admin/cre-equipe.html" class="btn-03 w-100 d-flex text-center justify-content-center">Criar Equipe</a>
+                </div>
+                <div class="w-100">
+                    <a href="/admin/cre-user.html" class="btn-03 w-100 d-flex text-center justify-content-center">Criar Usuário</a>
+                </div>
+                <div class="w-100">
+                    <a href="/admin/ger-tarefas.html" class="btn-03 w-100 d-flex text-center justify-content-center">Gerenciar Tarefas</a>
+                </div>
+                <div class="w-100">
+                    <a href="/admin/log.html" class="btn-03 w-100 d-flex text-center justify-content-center">Log Eventos</a>
+                </div>
+                <div class="w-100">
+                    <input onClick="sair()" type="button" value="Sair" class="btn-03 w-100 d-flex text-center justify-content-center"></input>
+                </div>
                 
-            </table>
-        </section>
-        
-        
-
-        
+            </div>
+            
+        </div>
+ 
     </main>
 
 
@@ -120,6 +107,7 @@
 
     <!--IMPORT JS-->
     <!-- <script src="../assets/js/loading.js"></script> -->
+    <script src="../assets/js/security/logout.js"></script>
 
 </body>
 

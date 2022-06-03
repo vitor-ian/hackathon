@@ -9,18 +9,18 @@ function drainUser(){
         users.push($(this).val());
     });
 
-    var equipe = localStorage.getItem("equipe");
-    var equipe_id = atob(equipe);
+    var tarefa = localStorage.getItem("tarefa");
+    var base_id = atob(tarefa);
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/equipe/drain",
+            url : "https://18.217.208.6:4443/api/v1/bases/drain",
             type : 'DELETE',
             crossDomain: true,
             
             dataType: "json",
             data: JSON.stringify({
                 users: users,
-                equipe_id: equipe_id,
+                base_id: base_id,
             }),
 
             headers: {
@@ -29,7 +29,8 @@ function drainUser(){
             },
             success: function (retorno) {
                 if(retorno.status == 200){
-                    window.location.href = "/admin/equipe.html"; 
+                    console.log("sucesso");
+                    // window.location.href = "/admin/equipe.html"; 
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");
                 }

@@ -1,14 +1,19 @@
-//adiciona um grupo de usuário de uma equipe
+//adiciona um grupo de usuário a uma equipe
 function fillUser(){
 
-    let localtoken = localStorage.getItem("token");
-    let token = atob(localtoken);
+    var localtoken = localStorage.getItem("token");
+    var token = atob(localtoken);
 
-    var users = document.querySelectorAll('input[type=checkbox]:checked').value;
-    var equipe_id = document.getElementById("equipe").value;
+    var users = [];
+    $("input:checkbox[id=check-user]:checked").each(function(){
+        users.push($(this).val());
+    });
+
+    var equipe = localStorage.getItem("equipe");
+    var equipe_id = atob(equipe);
 
       $.ajax({
-            url : "http://18.217.208.6:8080/api/v1/equipe/fill",
+            url : "https://18.217.208.6:4443/api/v1/equipe/fill",
             type : 'POST',
             crossDomain: true,
             
@@ -24,7 +29,7 @@ function fillUser(){
             },
             success: function (retorno) {
                 if(retorno.status == 200){
-                    console.log("usuário adicionado");
+                    window.location.href = "/admin/equipe.html"; 
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");
                 }

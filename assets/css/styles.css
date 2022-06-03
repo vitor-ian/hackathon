@@ -137,7 +137,7 @@ tr{
     top: 0;
     left: 0;
     background-color: #f1f2f3;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 
@@ -348,7 +348,7 @@ input:-webkit-autofill {
 }
 
 .txt-menu{
-    font-size: 14px !important;
+    font-size: 12px !important;
     font-weight: 400;
 }
 
@@ -510,7 +510,7 @@ input:-webkit-autofill {
     padding: 10px;
     width: 380px;
     border-radius: 10px;
-    border: 2px solid white;
+    background-color: white;
     margin: 0 20px;
 
     display: flex;
@@ -521,30 +521,23 @@ input:-webkit-autofill {
 .input-qrcode{
     background-color: transparent !important;
     width: 300px;
-    text-align: center;
-    color: white;
+    color: black;
+    margin: 10px;
 }
 
 .btn-input-qrcode{
-    margin-left: 10px;
-    font-size: 25px;
-    color: white;
+    margin: 10px;
+    color: var(--primary-color);
     background-color: transparent !important;
 }
 
 .input-qrcode::-webkit-input-placeholder {
-    color: white;
+    color: rgb(125, 125, 125);
 }
 
 .ct-camera-qrcode{
-    background-color: black;
     width: 100%;
     height: 100%;
-
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .scan-qrcode{
@@ -575,7 +568,7 @@ input:-webkit-autofill {
 }
 
 .ct-info-equipe{
-    width: 50%;
+    padding: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -583,7 +576,7 @@ input:-webkit-autofill {
 }
 
 .ct-qrcode-equipe{
-    width: 50%;
+    margin: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -594,6 +587,8 @@ input:-webkit-autofill {
 }
 
 .btn-print{
+    background-color: transparent;
+    color: var(--primary-color) !important;
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -638,7 +633,6 @@ input:-webkit-autofill {
 }
 
 .participantes{
-    width: 400px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -655,8 +649,7 @@ input:-webkit-autofill {
 
 .btns-equipe{
     margin-top: 100px;
-    display: flex;
-    align-items: center;
+    max-width: 500px;
 }
 
 .btns-equipe .btn-01{
@@ -808,6 +801,56 @@ input:-webkit-autofill {
     margin-bottom: 20px;
 }
 
+.rm-margin4{
+    margin-bottom: 10px !important;
+    padding: 5px 20px !important;
+}
+
+.type-input{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 20px !important;
+}
+
+.type-input label{
+    color: var(--titulo-color) !important;
+}
+
+.p1-btn-equipe{
+    margin-bottom: 30px;
+}
+
+.btn-04{
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+
+.btn-04 a{
+    width: 100%;
+}
+
+.p-perso{
+    padding: 20px 10px !important;
+}
+
+.list-user{
+    width: auto;
+    max-height: 350px;
+    overflow: auto;
+    padding-right: 15px;
+}
+/* 
+#video-container{
+    width: 100%;
+    height: 100vh;
+}
+
+#qr-video{
+    width: 100%;
+    height: 100vh;
+} */
+
 
 @media only screen and (max-width: 768px) {
     .list-ranking{
@@ -890,21 +933,24 @@ input:-webkit-autofill {
     }
 
     .participantes li{
-        width: 50%;
+        width: 100%;
     }
 
     .ct-info-equipe{
         width: 100%;
+        padding: 0;
         border-right: 0;
     }
     
     .ct-qrcode-equipe{
         width: 100%;
+        margin: 0;
         margin-bottom: 80px;
     }
 
     .info-equipe{
         justify-content: center;
+        text-align: center;
     }
 
     .info-equipe h3{
@@ -928,6 +974,8 @@ input:-webkit-autofill {
 
     .btn-01{
        width: 100% !important;
+       display: flex;
+       justify-content: center;
     }
 
     .btns-equipe .btn-01{
@@ -935,7 +983,6 @@ input:-webkit-autofill {
     }
 
     .btns-equipe div{
-        margin: 20px 0;
         width: 100%;
 
         display: flex;
@@ -983,5 +1030,21 @@ input:-webkit-autofill {
 
     .list-taks{
         padding-bottom: 80px;
+    }
+
+    .esp-01{
+        padding-right: 5px;
+    }
+
+    .esp-02{
+        padding-left: 5px;
+    }
+
+    .btn-04{
+        width: 50% !important;
+    }
+
+    .p1-btn-equipe{
+        margin-bottom: 0;
     }
 }

@@ -76,24 +76,17 @@
            <div>
                <!-- nome -->
                 <div  class="info-equipe">
-                    <img src="../assets/img/default-user-image.png" alt="">
                     <div class="">
-                        <h3 id="name-equipe">Nome da equipe</h3>
+                        <div>
+                            <h3 id="name-equipe">Equipe</h3>
+                        </div>
+                        
                         <h5><i class="uil uil-star"></i><span id="pontos-equipe"> Pontos</span></h5>
                     </div>
                 </div>
                 <!-- integrantes -->
                 <div>
-                    <ul class="participantes">
-                        <li>Participante</li>
-                        <li>Participante</li>
-                        <li>Participante</li>
-                        <li>Participante</li>
-                        <li>Participante</li>
-                        <li>Participante</li>
-                        <li>Participante</li>
-                        <li>Participante</li>
-                    </ul>
+                    <ul class="participantes"></ul>
                 </div>
                 <!-- botoes -->
                 <div class="btns-equipe">
@@ -107,12 +100,8 @@
 
        <!-- qr code -->
        <div class="ct-qrcode-equipe">
-            <div>
-                <div class="info-qrcode">
-                    <p>A34-PK7</p>
-                </div>
-    
-                <img src="../assets/img/qr example.png" alt="qr code">
+            <div id="qrcode">
+                <img src="/assets/img/loading.gif" style="width: 200px;" alt="">
             </div>
         </div>
     </main>
@@ -124,7 +113,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
     <!--IMPORT JS-->
-    <script src="../assets/js/loading.js"></script>
+    <!-- <script src="../assets/js/loading.js"></script> -->
+    <script src="../assets/js/equipe/getqrcode.js"></script>
+    <script src="../assets/js/equipe/get.js"></script>
 
 </body>
 

@@ -1,13 +1,13 @@
 //cria uma equipe
 function createEquipe(){
 
-    let localtoken = localStorage.getItem("token");
-    let token = atob(localtoken);
+    var localtoken = localStorage.getItem("token");
+    var token = atob(localtoken);
 
-    var name = document.getElementById("name-equipe").value;
+    var name = document.getElementById("equipe").value;
 
       $.ajax({
-            url : "http://18.217.208.6:8080/api/v1/equipe/create",
+            url : "https://18.217.208.6:4443/api/v1/equipe/create",
             type : 'POST',
             crossDomain: true,
             
@@ -22,7 +22,7 @@ function createEquipe(){
             },
             success: function (retorno) {
                 if(retorno.status == 200){
-                    console.log("equipe criada");
+                    window.location.href = "/admin/settings.html"; 
                 }else{
                     alert("Algo de errado aconteceu, tente novamente.");
                 }

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--NAME BAR-->
-    <title>Log de Eventos</title>
+    <title>Criar Tarefa</title>
 
     <!--ICON BAR-->
     <link rel="shortcut icon" href="">
@@ -27,7 +27,7 @@
     
 </head>
 
-<body class="boddy-01">
+<body class="boddy-02">
 
     <section id="loading" class="loading">
         <img src="../assets/img/carregando.gif" alt="">
@@ -70,46 +70,28 @@
         </ul>
     </section>
 
-    <main>
+    <main class="main-equipe">
+        <div class="esp-edit-equipe">
+            <div class="tl-pg-login">
+                <h1>Criar Tarefa</h1>
+            </div>
+    
+            <form>
+                <div class="ct-input-login rm-margin">
+                    <label><i class="uil uil-clipboard-notes"></i></label>
+                    <input name="tarefa" id="tarefa" class="input-login" type="text" placeholder="Nome da Tarefa" required="" value="">
+                </div>
 
-        <div  class="titulo-page">
-            <h1>Log de Eventos</h1>
+                <div>
+                    <input onClick="createTarefa()" type="button" value="Criar" id="submit" class="btn-03 rm-margin3"></input>
+                    <div class="ct-btn-cancel">
+                        <a class="btn-cancel" href="settings.html">Cancelar</a>
+                    </div>
+                    
+                </div>
+            </form>
         </div>
-
-        <section class="log-eventos">
-            <table>
-                <thead>
-                    <tr>
-                      <th>Autor</th>
-                      <th>Equipe</th>
-                      <th>Pontos anterior</th>
-                      <th>Pontos atual</th>
-                      <th>Horário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td>John</td>
-                      <td>FreeBSD</td>
-                      <td>1000</td>
-                      <td>2000</td>
-                      <td>13:10 - 10/04/2022</td>
-                    </tr>
-                    <tr>
-                      <td>John</td>
-                      <td>FreeBSD</td>
-                      <td>1000</td>
-                      <td>2000</td>
-                      <td>13:10 - 10/04/2022</td>
-                    </tr>
-                </tbody>
-                
-            </table>
-        </section>
-        
-        
-
-        
+ 
     </main>
 
 
@@ -120,6 +102,7 @@
 
     <!--IMPORT JS-->
     <!-- <script src="../assets/js/loading.js"></script> -->
+    <script src="../assets/js/bases/create.js"></script>
 
 </body>
 
