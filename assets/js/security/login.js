@@ -1,6 +1,14 @@
 //login
-function login(){
 
+$(document).keypress(function(e) {
+    if(e.which == 13){login();}
+});
+
+function login(){
+    $("#submit").html('<div class="spinner-border" role="status">\n' +
+        '                        <span class="sr-only">Loading...</span>\n' +
+        '                    </div>');
+    $('#alertas').html("");
     var username = document.getElementById("user").value;
     var password = document.getElementById("pass").value;
 
@@ -23,16 +31,17 @@ function login(){
                     localStorage.setItem("equipe", equipe);
 
                     if(retorno.user.type == "admin"){
-                        window.location.href = "/admin/ranking.html"; 
+                        window.location.href = "/admin/qrcode.html";
                     }
                     else if(retorno.user.type == "part"){
-                        window.location.href = "/participante/tarefas.html"; 
+                        window.location.href = "/participante/qrcode.html";
                     }
                     
                 }
                 
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                $("#submit").html('Entrar');
                 if(xhr.status == 401){
                     $('#alertas').html("<div class='alert alert-danger alert-dismissible fade show'>Usuário ou senha incorretos.<button type='button' class='btn-close' data-bs-dismiss='alert'></button></div>"); 
                     timeOut();

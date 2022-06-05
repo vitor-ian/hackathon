@@ -16,6 +16,7 @@ $.ajax({
         "token": token,
     },
     success: function (retorno) {
+        $('.participantes').html("");
         if(retorno.status == 200){
             var nome = retorno.equipes.name;
             var pontos = retorno.equipes.pontos;
@@ -24,7 +25,12 @@ $.ajax({
             $('#pontos-equipe').html(pontos); 
 
             $(retorno.equipes.participantes).each(function(chave, valor){
-                $("<li class='m-2'>"+ valor.name +"</li>").appendTo(".participantes");
+                var phone = ""
+                if(valor.phone != ""){
+                    phone = "<a target='_blank' href='https://api.whatsapp.com/send?phone=55"+valor.phone+"'><i class='uil uil-whatsapp'></i></a>";
+                }
+                var participante = "<li class='m-8'>"+ valor.name +" (<small><em>"+valor.observacoes+")</em></small>  "+phone+"</li>"
+                $(participante).appendTo(".participantes");
             });
         }else{
             alert("Algo de errado aconteceu, tente novamente.");

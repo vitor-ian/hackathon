@@ -35,10 +35,6 @@
 
     <header class="menu-desck">
         <ul>
-            <li><a href="/participante/tarefas.html">
-                <i class="uil uil-clipboard-notes"></i> Tarefas
-            </a></li>
-
             <li><a href="/participante/qrcode.html">
                 <i class="uil uil-qrcode-scan"></i> QR Code
             </a></li>
@@ -52,11 +48,6 @@
 
     <section class="menu-mobile">
         <ul>
-            <li  class="item-mobile"><a href="/participante/tarefas.html">
-                <p class="icon-menu"><i class="uil uil-clipboard-notes"></i></p>
-                <p class="txt-menu">Tarefas</p>
-            </a></li>
-
             <li class="item-mobile"><a href="/participante/qrcode.html">
                 <p class="icon-menu"><i class="uil uil-qrcode-scan"></i></p>
                 <p class="txt-menu">QR Code</p>
@@ -81,29 +72,21 @@
                             <h3 id="name-equipe">Equipe</h3>
                         </div>
                         
-                        <h5><i class="uil uil-star"></i><span id="pontos-equipe"> Pontos</span></h5>
                     </div>
                 </div>
                 <!-- integrantes -->
-                <div>
-                    <ul class="participantes"></ul>
-                </div>
-                <!-- botoes -->
-                <div class="btns-equipe">
-                    <div>
-                        <a class="btn-01" href="/participante/tarefas.html">Tarefas</a>
-                    </div>
-                    
+                <div class="row">
+                    <i class="fa-solid fa-bridge-suspension"></i>
+                    <ul class="participantes">
+                        <li class='m-2'>
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
            </div>
        </div>
-
-       <!-- qr code -->
-       <div class="ct-qrcode-equipe">
-            <div id="qrcode">
-                <img src="/assets/img/loading.gif" style="width: 200px;" alt="">
-            </div>
-        </div>
     </main>
 
 
