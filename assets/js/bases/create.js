@@ -7,7 +7,7 @@ function createTarefa(){
     var name = document.getElementById("tarefa").value;
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/bases/create",
+            url : "https://api.jogodacidade.app/api/v1/bases/create",
             type : 'POST',
             crossDomain: true,
             

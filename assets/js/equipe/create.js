@@ -7,7 +7,7 @@ function createEquipe(){
     var name = document.getElementById("equipe").value;
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/equipe/create",
+            url : "https://api.jogodacidade.app/api/v1/equipe/create",
             type : 'POST',
             crossDomain: true,
             

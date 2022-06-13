@@ -7,7 +7,7 @@
 //     var id = document.getElementById("id-user").value;
 
 //       $.ajax({
-//             url : "https://18.217.208.6:4443/api/v1/user/get?" + id,
+//             url : "https://api.jogodacidade.app/api/v1/user/get?" + id,
 //             type : 'GET',
 //             crossDomain: true,
             

@@ -13,11 +13,11 @@ function login(){
     var password = document.getElementById("pass").value;
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/user/login",
+            url : "https://api.jogodacidade.app/api/v1/user/login",
             type : 'POST',
             crossDomain: true,
-            
-            dataType: "json",
+
+             dataType: "json",
             data: JSON.stringify({"username": username, "password": password}),
 
             headers: {
@@ -26,12 +26,16 @@ function login(){
             success: function (retorno) {
                 if(retorno.status == 200){
                     let token = btoa(retorno.token);
-                    let equipe = btoa(retorno.equipe_id);
+                    if(retorno.equipe_id != null){
+                        let equipe = btoa(retorno.equipe_id);
+                        localStorage.setItem("equipe", equipe);
+                    }
                     localStorage.setItem("token", token);
-                    localStorage.setItem("equipe", equipe);
 
-                    if(retorno.user.type == "admin"){
-                        window.location.href = "/admin/qrcode.html";
+                    localStorage.setItem("type", retorno.user.type);
+
+                    if(retorno.user.type == "admin" || retorno.user.type =="avali"){
+                        window.location.href = "/admin/ger-equipes.html";
                     }
                     else if(retorno.user.type == "part"){
                         window.location.href = "/participante/qrcode.html";

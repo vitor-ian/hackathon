@@ -3,7 +3,7 @@ var localtoken = localStorage.getItem("token");
 var token = atob(localtoken);
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/bases/get-all",
+            url : "https://api.jogodacidade.app/api/v1/bases/get-all",
             type : 'GET',
             crossDomain: true,
 
@@ -21,6 +21,12 @@ var token = atob(localtoken);
                 
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr);
+                if(xhr.status === 401){
+                    alert("Hei Xoven, você não tem permissão pra acessar essa página em, ta logado?");
+                    window.location.href = "/login.html";
+                    return false;
+                }
                 alert("Ocorreu um erro, tente novamente ou entre em contato com o administrador do sistema");
             }
         })

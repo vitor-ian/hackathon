@@ -13,7 +13,7 @@ function drainUser(){
     var equipe_id = atob(equipe);
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/equipe/drain",
+            url : "https://api.jogodacidade.app/api/v1/equipe/drain",
             type : 'DELETE',
             crossDomain: true,
             

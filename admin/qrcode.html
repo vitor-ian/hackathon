@@ -15,7 +15,7 @@
         Highlight Style
         <select id="scan-region-highlight-style-select">
             <option value="default-style">Default style</option>
-            <option value="example-style-1">Example custom style 1</option>
+            <option value="example-style-1" selected>Example custom style 1</option>
             <option value="example-style-2">Example custom style 2</option>
         </select>
     </label>
@@ -60,6 +60,8 @@
 <script type="module">
     import QrScanner from "/assets/js/qrcode/qr-scanner.min.js";
 
+    var reading = false;
+
     const video = document.getElementById('qr-video');
     const videoContainer = document.getElementById('video-container');
 
@@ -84,7 +86,10 @@
     function setResult(label, result) {
         var url = result.data;
         if(isUrlValid(url)) {
-            window.location.replace(url);
+            if(!reading) {
+                reading = true;
+                window.location.replace(url);
+            }
         }else{
             alert("QRcode não autorizado para essa aplicação");
         }

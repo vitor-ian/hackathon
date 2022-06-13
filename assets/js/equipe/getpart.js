@@ -6,7 +6,7 @@ var equipe = localStorage.getItem("equipe");
 var id = atob(equipe);
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/equipe/get-participantes?equipe_id=" + id,
+            url : "https://api.jogodacidade.app/api/v1/equipe/get-participantes?equipe_id=" + id,
             type : 'GET',
             crossDomain: true,
 

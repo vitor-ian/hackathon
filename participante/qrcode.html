@@ -33,6 +33,27 @@
         <img src="../assets/img/carregando.gif" alt="">
     </section>
 
+    <section class="menu-mobile">
+        <ul>
+
+            <li class="item-mobile  select-item"><a href="/participante/qrcode.html">
+                <p class="icon-menu"><i class="uil uil-qrcode-scan"></i></p>
+                <p class="txt-menu">QR Code</p>
+            </a></li>
+
+            <li class="item-mobile"><a href="/common/equipe/pontos.html?equipe_id=" class="href_pontos">
+                <p class="icon-menu"><i class="uil uil-ticket"></i></p>
+                <p class="txt-menu">Pontuação</p>
+            </a></li>
+
+            <li class="item-mobile" ><a href="/participante/equipe.html">
+                <p class="icon-menu"><i class="uil uil-users-alt"></i></p>
+                <p class="txt-menu">Equipe</p>
+            </a></li>
+
+        </ul>
+    </section>
+
     <header class="menu-desck">
         <ul>
             <li><a href="/participante/qrcode.html">
@@ -43,28 +64,16 @@
                 <i class="uil uil-users-alt"></i> Equipe
             </a></li>
 
+            <li><a href="!#" class="href_pontos">
+                <i class="uil uil-ticket"></i> Pontuação
+            </a></li>
+
+            <li><a href="#" onclick="sair()">
+                <i class="uil uil-backpack"></i> Sair
+            </a></li>
+
         </ul>
     </header>
-
-    <section class="menu-mobile">
-        <ul>
-            <li  class="item-mobile"><a href="/participante/tarefas.html">
-                <p class="icon-menu"><i class="uil uil-clipboard-notes"></i></p>
-                <p class="txt-menu">Tarefas</p>
-            </a></li>
-
-            <li class="item-mobile  select-item"><a href="/participante/qrcode.html">
-                <p class="icon-menu"><i class="uil uil-qrcode-scan"></i></p>
-                <p class="txt-menu">QR Code</p>
-            </a></li>
-
-            <li class="item-mobile"><a href="/participante/equipe.html">
-                <p class="icon-menu"><i class="uil uil-users-alt"></i></p>
-                <p class="txt-menu">Equipe</p>
-            </a></li>
-
-        </ul>
-    </section>
 
     <main class="main-qrcode">
         <!-- info -->
@@ -101,6 +110,15 @@
     <!-- <script src="../assets/js/loading.js"></script> -->
     <script src="../assets/js/equipe/getqrcode.js"></script>
     <script src="../assets/js/equipe/get.js"></script>
+    <script src="/assets/js/security/logout.js"></script>
+    <script>
+        if(localStorage.getItem("equipe")){
+            equipe=(atob(localStorage.getItem("equipe")));
+            $(".href_pontos").attr("href","/common/equipe/pontos.html?equipe_id="+equipe);
+        }else{
+            alert("algo deu errado, avise o chefe!");
+        }
+    </script>
 
 </body>
 

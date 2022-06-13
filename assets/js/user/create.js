@@ -18,7 +18,7 @@ function createUser(){
     }
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/user/create",
+            url : "https://api.jogodacidade.app/api/v1/user/create",
             type : 'POST',
             crossDomain: true,
             

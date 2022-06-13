@@ -8,7 +8,7 @@ function searchEquipe(){
     var equipes = [];
 
     $.ajax({
-        url : "https://18.217.208.6:4443/api/v1/equipe/get-all",
+        url : "https://api.jogodacidade.app/api/v1/equipe/get-all",
         type : 'GET',
         crossDomain: true,
         
@@ -44,4 +44,53 @@ function searchEquipe(){
     })
 
     
+}
+function getAllEquipes(){
+    var token = atob(localStorage.getItem("token"));
+    $('#spinner_loading').slideDown();
+
+    $.ajax({
+        url : "https://api.jogodacidade.app/api/v1/equipe/get-all",
+        type : 'GET',
+        crossDomain: true,
+
+        dataType: "json",
+
+        headers: {
+            "token": token,
+        },
+        success: function (retorno) {
+            $('#spinner_loading').slideUp();
+            $('#equipes').html("");
+
+            if(retorno.status === 200){
+
+                contador = 1;
+                $(retorno.equipes).each(function(chave, valor){
+                    var points = "<a target='_blank' href='/common/equipe/pontos.html?equipe_id="+valor.id+"'><i class='uil uil-ticket'></i></a>";
+                    var participante = "<tr>\n" +
+                        "                <th scope=\"row\">"+contador+"</th>\n" +
+                        "                <td>"+valor.name+"</td>\n" +
+                        "                <td>"+valor.pontos_totais+"</td>\n" +
+                        "                <td>"+valor.num_participantes+"</td>\n" +
+                        "                <td>"+points+"</td>\n" +
+                        "            </tr>"
+                    $(participante).appendTo("#equipes");
+                    contador ++;
+                });
+            }else{
+                alert("Algo de errado aconteceu, tente novamente.");
+            }
+
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            if(xhr.status === 401){
+                alert("Hei Xoven, você não tem permissão pra acessar essa página em, ta logado?");
+                window.location.href = "/login.html";
+                return false;
+            }
+            alert("Ocorreu um erro, tente novamente ou entre em contato com o administrador do sistema");
+        }
+    })
 }

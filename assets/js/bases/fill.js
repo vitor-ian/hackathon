@@ -13,7 +13,7 @@ function fillUser(){
     var base_id = atob(tarefa);
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/bases/fill",
+            url : "https://api.jogodacidade.app/api/v1/bases/fill",
             type : 'POST',
             crossDomain: true,
             

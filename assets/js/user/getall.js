@@ -5,7 +5,7 @@ var token = atob(localtoken);
 var usuarios = [];
 
       $.ajax({
-            url : "https://18.217.208.6:4443/api/v1/user/get-all?type=part",
+            url : "https://api.jogodacidade.app/api/v1/user/get-all?type=part",
             type : 'GET',
             crossDomain: true,
 

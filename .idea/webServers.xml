@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1b8ec192-1f48-4128-88c3-d5017d77cb80" name="hackathon-aws">
+        <fileTransfer rootFolder="/usr/local/www/hackathon-frontend/" accessType="SFTP" host="18.191.149.128" port="22" sshConfigId="57273f44-7d7f-48ed-aaa8-511ff4acfb32" sshConfig="tiago@18.191.149.128:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
