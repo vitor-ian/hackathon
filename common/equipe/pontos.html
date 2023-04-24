@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" xmlns="http://www.w3.org/1999/html">
 
 <head>
 
@@ -33,7 +33,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Pontuar equipe: <strong><i class="equipe-name"></i></strong></h5>
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Pontuar equipe: <strong><i class="equipe-name"></i></strong>
+                    <br>
+                    Base: <strong><i class="base-name"></i></strong>
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -42,7 +46,7 @@
                         <label for="select_type" class="col-form-label">Tipo:</label><br/>
                         <select name="select" id="select_type">
                             <option value="base" selected>Pontos por base</option>
-                            <option value="penalidade">Penalidade</option>
+                            <option value="previa">Tarefa Prévia</option>
                         </select>
                     </div>
                     <div class="mb-3" id="container_obs" style="display: none">
@@ -50,17 +54,17 @@
                         <textarea class="form-control" id="obs"></textarea>
                     </div>
                     <div class="mb-3" id="container_chegada" style="display: none">
-                        <label for="chegada" class="col-form-label">Chegada</label>
+                        <label for="chegada" class="col-form-label">Horario</label>
                         <input name="saida" id="chegada" class="input-login" type="time" placeholder="Saída" required="" value="">
                     </div>
                     <div class="mb-3" style="width: 30%">
                         <label for="pontos" class="col-form-label">Pontos</label>
                         <input type="number" min="0" max="15" class="form-control" id="pontos">
                     </div>
-                    <div class="mb-3" style="width: 30%" id="container_dica">
-                        <label for="dicas_points" class="col-form-label">Pontos dica</label>
-                        <input type="number" min="0" max="15" class="form-control" id="dicas_points">
-                    </div>
+<!--                    <div class="mb-3" style="width: 30%" id="container_dica">-->
+<!--                        <label for="dicas_points" class="col-form-label">Pontos dica</label>-->
+<!--                        <input type="number" min="0" max="15" class="form-control" id="dicas_points">-->
+<!--                    </div>-->
                 </form>
             </div>
             <div class="modal-footer">
@@ -249,7 +253,7 @@
     }
 
     function changeContainers(valor){
-        if(valor === "penalidade"){
+        if(valor === "previa"){
             $("#container_obs").slideDown();
             $("#container_chegada").slideUp();
             $("#container_dica").slideUp();

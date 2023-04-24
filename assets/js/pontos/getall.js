@@ -33,6 +33,7 @@ function getAllPontos(){
                 }
                 contador = 1;
                 $('.equipe-name').html(retorno.equipe);
+                $('.base-name').html(retorno.minha_base);
                 $(retorno.pontos).each(function(chave, valor){
                     var participante = "<tr>\n" +
                         "                <th scope=\"row\">"+contador+"</th>\n" +

@@ -45,7 +45,7 @@ function searchEquipe(){
 
     
 }
-function getAllEquipes(){
+function getAllEquipes(totais = false){
     var token = atob(localStorage.getItem("token"));
     $('#spinner_loading').slideDown();
 
@@ -68,13 +68,24 @@ function getAllEquipes(){
                 contador = 1;
                 $(retorno.equipes).each(function(chave, valor){
                     var points = "<a target='_blank' href='/common/equipe/pontos.html?equipe_id="+valor.id+"'><i class='uil uil-ticket'></i></a>";
-                    var participante = "<tr>\n" +
+                    if(totais === false){
+                        var participante = "<tr>\n" +
                         "                <th scope=\"row\">"+contador+"</th>\n" +
                         "                <td>"+valor.name+"</td>\n" +
-                        "                <td>"+valor.pontos_totais+"</td>\n" +
                         "                <td>"+valor.num_participantes+"</td>\n" +
+                        "                <td>"+valor.ramo+"</td>\n" +
                         "                <td>"+points+"</td>\n" +
                         "            </tr>"
+                    }else{
+                        var participante = "<tr>\n" +
+                            "                <th scope=\"row\">"+contador+"</th>\n" +
+                            "                <td>"+valor.name+"</td>\n" +
+                            "                <td>"+valor.num_participantes+"</td>\n" +
+                            "                <td>"+valor.ramo+"</td>\n" +
+                            "                <td>"+valor.pontos_totais+"</td>\n" +
+                            "                <td>"+points+"</td>\n" +
+                            "            </tr>"
+                    }
                     $(participante).appendTo("#equipes");
                     contador ++;
                 });
