@@ -45,8 +45,9 @@
                     <div class="mb-3">
                         <label for="select_type" class="col-form-label">Tipo:</label><br/>
                         <select name="select" id="select_type">
-                            <option value="base" selected>Pontos por base</option>
-                            <option value="previa">Tarefa Prévia</option>
+                            <option value="1" selected>Pontos por base</option>
+                            <option value="2">Chefe oculto</option>
+                            <option value="3">Staff</option>
                         </select>
                     </div>
                     <div class="mb-3" id="container_obs" style="display: none">
@@ -190,6 +191,7 @@
             <th scope="col" style="color: black">Pontos</th>
             <th scope="col" style="color: black">Pontos da dica</th>
             <th scope="col" style="color: black">Observação</th>
+            <th scope="col" style="color: black">#ID (Controle)</th>
         </tr>
         </thead>
         <tbody id="table_pontos">
@@ -239,6 +241,11 @@
         var dica_points = $("#dicas_points").val();
         var pontos = $("#pontos").val();
         var obs = $("#obs").val();
+        if(tipo == null || tipo == undefined || tipo == ""){
+            alert("Voce precisa preencher o campo Tipo");
+            $("select_type").focus();
+            return false;
+        }
 
         var dados = {
             "equipe_id": getUrlParameter("equipe_id"),
@@ -246,7 +253,7 @@
             "pontos": pontos,
             "pontos_dicas":dica_points,
             "new":true,
-            "is_base": (tipo === "base"),
+            "is_base": tipo,
             "chegada": chegada
         };
         pontuar(dados);

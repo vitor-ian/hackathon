@@ -36,7 +36,7 @@ function getAllPontos(){
                 $('.base-name').html(retorno.minha_base);
                 $(retorno.pontos).each(function(chave, valor){
                     var participante = "<tr>\n" +
-                        "                <th scope=\"row\">"+contador+"</th>\n" +
+                        "                <th scope=\"row\">"+valor.id+"</th>\n" +
                         "                <td>"+valor.base+"</td>\n" +
                         "                <td>"+valor.avaliador+"</td>\n" +
                         "                <td>"+valor.tipo+"</td>\n" +
@@ -44,6 +44,7 @@ function getAllPontos(){
                         "                <td>"+valor.pontos+"</td>\n" +
                         "                <td>"+valor.pontos_dicas+"</td>\n" +
                         "                <td>"+valor.observacao+"</td>\n" +
+                        "                <td>"+valor.id+"</td>\n" +
                         "            </tr>"
                     $(participante).appendTo("#table_pontos");
                     contador ++;

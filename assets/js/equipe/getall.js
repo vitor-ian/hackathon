@@ -45,12 +45,13 @@ function searchEquipe(){
 
     
 }
+
 function getAllEquipes(totais = false){
     var token = atob(localStorage.getItem("token"));
     $('#spinner_loading').slideDown();
 
     $.ajax({
-        url : "https://api.jogodacidade.app/api/v1/equipe/get-all",
+        url : "https://api.jogodacidade.app/api/v1/equipe/get-all?totais="+totais,
         type : 'GET',
         crossDomain: true,
 
